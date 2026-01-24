@@ -1,7 +1,9 @@
 # Assumptions
 
-- iOS app is built with Xcode and uses Fastlane-compatible signing.
-- RevenueCat will be used for subscription management with standard offerings.
-- GitHub and Discord OAuth will be handled via external provider (e.g. Auth0/Firebase) later; this work covers UI + plumbing only.
-- TestFlight deployment uses App Store Connect API key stored in GitHub Secrets.
-- GitHub Pages site already exists and only needs verification screenshots, not redesign.
+- The repository `realagiorganization/enchanted` contains an iOS app built with Swift/SwiftUI.
+- Authentication providers to be added are GitHub OAuth and Discord OAuth using standard OAuth 2.0 flows.
+- RevenueCat is the chosen subscription backend for in-app purchases and entitlement management.
+- The app will support at least one recurring subscription tier with optional trial.
+- GitHub Actions and Fastlane are acceptable CI/CD tooling for TestFlight deployment.
+- No existing auth or subscription implementation fully satisfies the requested features.
+
