@@ -1,0 +1,32 @@
+name: bdd
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+
+jobs:
+  bdd:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Run BDD suite
+        run: python scripts/bdd/run_bdd.py
+
+      - name: Record BDD run
+        uses: charmbracelet/vhs-action@v2
+        with:
+          path: scripts/bdd/bdd.tape
+
+      - name: Upload BDD recording
+        uses: actions/upload-artifact@v4
+        with:
+          name: bdd-suite-gif
+          path: assets/bdd-suite.gif

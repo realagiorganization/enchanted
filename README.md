@@ -1,6 +1,7 @@
 [<img src="https://img.shields.io/badge/App_Store-0D96F6?&logo=app-store&logoColor=white">](https://apps.apple.com/gb/app/enchanted-llm/id6474268307)
 ![Swift](https://img.shields.io/badge/swift-F54A2A?&logo=swift&logoColor=white)
 ![Release](https://img.shields.io/github/v/release/augustdev/enchanted)
+![BDD Suite](https://github.com/realagiorganization/enchanted/actions/workflows/bdd.yml/badge.svg)
 ![Stars](https://img.shields.io/github/stars/augustdev/enchanted.svg)
 [<img src="https://img.shields.io/twitter/url?url=https%3A%2F%2Ftwitter.com%2Famgauge">](https://twitter.com/amgauge)
 ![iOS](https://img.shields.io/badge/iOS-000000?&logo=os&logoColor=white)
@@ -24,6 +25,10 @@ Note: You will need to run your own Ollama server to use the app. Read instructi
 [<img src="./assets/promo.png">](https://www.youtube.com/watch?v=zW3roZ_vM5Q)
 
 [Vision Pro Demo](https://www.youtube.com/watch?v=y4ZeGU5IdHA)
+
+## BDD Suite
+
+![BDD suite run](./assets/bdd-suite.gif)
 
 ## Showcase
 
