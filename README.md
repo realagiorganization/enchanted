@@ -2,6 +2,7 @@
 ![Swift](https://img.shields.io/badge/swift-F54A2A?&logo=swift&logoColor=white)
 ![Release](https://img.shields.io/github/v/release/augustdev/enchanted)
 ![BDD Suite](https://github.com/realagiorganization/enchanted/actions/workflows/bdd.yml/badge.svg)
+![TestFlight](https://github.com/realagiorganization/enchanted/actions/workflows/testflight.yml/badge.svg)
 ![Stars](https://img.shields.io/github/stars/augustdev/enchanted.svg)
 [<img src="https://img.shields.io/twitter/url?url=https%3A%2F%2Ftwitter.com%2Famgauge">](https://twitter.com/amgauge)
 ![iOS](https://img.shields.io/badge/iOS-000000?&logo=os&logoColor=white)

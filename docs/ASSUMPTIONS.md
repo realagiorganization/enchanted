@@ -8,3 +8,5 @@
 - No existing auth or subscription implementation fully satisfies the requested features.
 - The BDD suite can be expressed as Gherkin-style feature files with a lightweight local runner.
 - VHS is not available in the container, so the BDD GIF was generated via Pillow while CI uses the VHS action.
+- The TestFlight release workflow uses the `Enchanted` scheme in `Enchanted.xcodeproj`.
+- App Store Connect API key values are provided via GitHub Actions secrets and the key content is base64-encoded.
