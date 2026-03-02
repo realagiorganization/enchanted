@@ -1,0 +1,53 @@
+name: ci
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+
+jobs:
+  build-and-test:
+    runs-on: macos-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: "3.2"
+
+      - name: Install fastlane
+        run: gem install fastlane
+
+      - name: Bundle install (if Gemfile)
+        run: |
+          if [ -f "Gemfile" ]; then
+            bundle install --path vendor/bundle
+          fi
+
+      - name: Cache CocoaPods
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.cocoapods
+            Pods
+          key: ${{ runner.os }}-pods-${{ hashFiles('**/Podfile.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-pods-
+
+      - name: Install pods
+        run: |
+          if [ -f "Podfile" ]; then
+            pod install --repo-update
+          fi
+
+      - name: Build & test (simulator)
+        run: bundle exec fastlane ios ci_build || fastlane ios ci_build
+
+      - name: Upload test results
+        if: success() || failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: xcode-results
+          path: "**/*.xcresult"

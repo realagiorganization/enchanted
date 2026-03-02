@@ -1,0 +1,53 @@
+name: pages-screenshot
+
+on:
+  push:
+    branches: ["main"]
+    paths:
+      - "docs/**"
+      - "README.md"
+      - "assets/**"
+  workflow_dispatch:
+
+jobs:
+  screenshot:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install playwright
+        run: |
+          npm install -g playwright@1.41.2
+          playwright install --with-deps chromium
+
+      - name: Build GitHub Pages locally
+        run: |
+          npm install -g serve
+          serve . -l 4173 &
+          echo $! > server.pid
+          sleep 5
+
+      - name: Capture screenshot
+        run: |
+          node <<'EOF'
+          const { chromium } = require('playwright');
+          (async () => {
+            const browser = await chromium.launch({ headless: true });
+            const page = await browser.newPage({ viewport: { width: 1440, height: 900 } });
+            await page.goto('http://localhost:4173', { waitUntil: 'networkidle' });
+            await page.screenshot({ path: 'assets/pages-screenshot.png', fullPage: true });
+            await browser.close();
+          })();
+          EOF
+
+      - name: Stop server
+        if: always()
+        run: |
+          if [ -f server.pid ]; then kill $(cat server.pid); fi
+
+      - name: Upload screenshot
+        uses: actions/upload-artifact@v4
+        with:
+          name: pages-screenshot
+          path: assets/pages-screenshot.png
