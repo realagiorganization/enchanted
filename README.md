@@ -2,7 +2,9 @@
 ![Swift](https://img.shields.io/badge/swift-F54A2A?&logo=swift&logoColor=white)
 ![Release](https://img.shields.io/github/v/release/augustdev/enchanted)
 ![BDD Suite](https://github.com/realagiorganization/enchanted/actions/workflows/bdd.yml/badge.svg)
+![CI](https://github.com/realagiorganization/enchanted/actions/workflows/ci.yml/badge.svg)
 ![TestFlight](https://github.com/realagiorganization/enchanted/actions/workflows/testflight.yml/badge.svg)
+![Pages Screenshot](https://github.com/realagiorganization/enchanted/actions/workflows/pages-screenshot.yml/badge.svg)
 ![Stars](https://img.shields.io/github/stars/augustdev/enchanted.svg)
 [<img src="https://img.shields.io/twitter/url?url=https%3A%2F%2Ftwitter.com%2Famgauge">](https://twitter.com/amgauge)
 ![iOS](https://img.shields.io/badge/iOS-000000?&logo=os&logoColor=white)
@@ -30,6 +32,10 @@ Note: You will need to run your own Ollama server to use the app. Read instructi
 ## BDD Suite
 
 ![BDD suite run](./assets/bdd-suite.gif)
+
+## Docs Screenshot
+
+![Latest docs screenshot](./assets/pages-screenshot.png)
 
 ## Showcase
 

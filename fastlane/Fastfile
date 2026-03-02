@@ -22,4 +22,17 @@ platform :ios do
       skip_waiting_for_build_processing: true
     )
   end
+
+  desc "CI build + test on simulator with codesigning disabled"
+  lane :ci_build do
+    scan(
+      scheme: "Enchanted",
+      project: "Enchanted.xcodeproj",
+      devices: ["iPhone 15"],
+      clean: true,
+      result_bundle: true,
+      xcargs: "CODE_SIGNING_ALLOWED=NO CODE_SIGNING_REQUIRED=NO",
+      skip_package_dependencies_resolution: false
+    )
+  end
 end

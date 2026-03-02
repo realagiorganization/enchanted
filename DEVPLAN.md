@@ -15,20 +15,20 @@
 - ngrok (or equivalent) for exposing local servers in testing
 
 ## Milestones
-1. Baseline health checks and documentation alignment.
-2. Authentication and account linking UI (GitHub + Discord).
-3. RevenueCat purchase and plan management UI.
-4. End-to-end BDD coverage of principal user journeys.
-5. CI automation for BDD suite and releases.
+1. Baseline health checks, documentation alignment, and CI badges surfaced in README.
+2. Authentication and account linking UI (GitHub + Discord) with device Keychain storage.
+3. RevenueCat purchase, entitlement sync, and plan management UI.
+4. End-to-end BDD coverage of principal user journeys (auth, subscriptions, chat, offline).
+5. CI automation for build + test, BDD suite with VHS recording, and TestFlight releases via Fastlane.
 
 ## Implementation Steps
-1. Audit the existing settings, onboarding, and account screens to identify insertion points for auth and subscriptions.
-2. Add OAuth flow scaffolding for GitHub and Discord, including token storage and account linking state.
-3. Build the plan purchase/management screen using RevenueCat entitlements and offerings.
-4. Update settings/upgrade UX to expose current plan status and renewal controls.
-5. Expand BDD coverage for onboarding, server configuration, messaging, multimodal prompts, and offline usage.
-6. Wire the BDD suite into GitHub Actions, publish a badge, and generate a GIF demo recording.
-7. Align CI for TestFlight releases via Fastlane and document required secrets.
+1. Audit the existing settings, onboarding, account, and upgrade surfaces to identify insertion points for auth, subscriptions, and entitlement diagnostics.
+2. Add OAuth flow scaffolding for GitHub and Discord (PKCE + ASWebAuthenticationSession), persist tokens in Keychain, and surface linked-provider state in account UI.
+3. Build the plan purchase/management screen using RevenueCat offerings (purchase, restore, upgrade/downgrade, grace-state messaging) and expose entitlement health in settings.
+4. Update settings/upgrade UX to expose current plan status, renewal controls, and troubleshooting links for login/subscription issues.
+5. Expand BDD coverage for onboarding, auth, subscription lifecycle, server configuration, messaging, multimodal prompts, and offline usage.
+6. Wire the BDD suite into GitHub Actions with VHS recording, publish badges + GIF in README, and capture GitHub Pages screenshot when docs/site change.
+7. Align CI for simulator build + test validation and TestFlight releases via Fastlane; document required secrets and simulator targets in README/ASSUMPTIONS.
 
 ## Validation
 - Run the BDD suite locally and in CI (`python scripts/bdd/run_bdd.py`).

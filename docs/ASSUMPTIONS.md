@@ -10,3 +10,6 @@
 - VHS is not available in the container, so the BDD GIF was generated via Pillow while CI uses the VHS action.
 - The TestFlight release workflow uses the `Enchanted` scheme in `Enchanted.xcodeproj`.
 - App Store Connect API key values are provided via GitHub Actions secrets and the key content is base64-encoded.
+- Added CI simulator build lane assumes Xcode device "iPhone 15" is available on GitHub macOS runners.
+- GitHub Pages screenshot workflow serves repo root at port 4173 and captures landing page; assumes docs are static and load without extra build step.
+- `fastlane ios ci_build` is invoked via `bundle exec` when Gemfile exists; falls back to global fastlane otherwise.
